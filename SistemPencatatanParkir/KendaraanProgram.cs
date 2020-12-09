@@ -126,6 +126,15 @@ namespace SistemPencatatanParkir
                 else if (key3 == 4)
                 {
                     // Riwayat
+                    Console.Clear();
+                    Console.WriteLine("Riwayat Parkir anda");
+                    foreach (History history in Kendaraan.Histories)
+                    {
+                        Console.WriteLine("==================");
+                        Console.WriteLine("Tipe     = " + history.Tipe);
+                        Console.WriteLine("Waktu    = " + history.Waktu);
+                    }
+                    Console.ReadLine();
                 }
                 else if (key3 == 0)
                 {
