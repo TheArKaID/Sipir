@@ -32,6 +32,8 @@ namespace SistemPencatatanParkir
                 if (key == 1)
                 {
                     // Admin
+                    AdminProgram adminProgram = new AdminProgram(program.allMahasiswa);
+                    program.allMahasiswa = adminProgram.program();
                 }
                 else if (key == 2)
                 {
