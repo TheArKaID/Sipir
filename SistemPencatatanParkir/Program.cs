@@ -38,6 +38,10 @@ namespace SistemPencatatanParkir
                 else if (key == 2)
                 {
                     // Mahasiswa Section
+                    MahasiswaProgram mahasiswaProgram = new MahasiswaProgram(program.allMahasiswa, program.allKendaraan);
+                    mahasiswaProgram.program();
+                    program.allMahasiswa = mahasiswaProgram.AllMahasiswa;
+                    program.allKendaraan = mahasiswaProgram.Allkendaraan;
 
                 }
                 else if (key == 0)
