@@ -46,6 +46,7 @@
     <Compile Include="Admin.cs" />
     <Compile Include="AdminProgram.cs" />
     <Compile Include="Kendaraan.cs" />
+    <Compile Include="KendaraanProgram.cs" />
     <Compile Include="Mahasiswa.cs" />
     <Compile Include="MahasiswaProgram.cs" />
     <Compile Include="Program.cs" />
