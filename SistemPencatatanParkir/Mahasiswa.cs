@@ -9,7 +9,9 @@ namespace SistemPencatatanParkir
     class Mahasiswa : User
     {
         protected string nim;
+        protected Kendaraan kendaraan;
 
         public string Nim { get => nim; set => nim = value; }
+        public Kendaraan Kendaraan { get => kendaraan; set => kendaraan = value; }
     }
 }

@@ -17,5 +17,13 @@ namespace SistemPencatatanParkir
         public string Jenis { get => jenis; set => jenis = value; }
         public string Merk { get => merk; set => merk = value; }
         public string Nomor { get => nomor; set => nomor = value; }
+
+        public Kendaraan()
+        {
+            Id = 0;
+            Jenis = "";
+            Merk = "";
+            Nomor = "";
+        }
     }
 }
