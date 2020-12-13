@@ -63,7 +63,8 @@ namespace SistemPencatatanParkir
                 Console.WriteLine("- Pilih Menu -");
                 Console.WriteLine("1. Tambah Mahasiswa\n" +
                                   "2. Lihat Semua Mahasiswa\n" +
-                                  "3. All History\n" +
+                                  "3. Hapus Mahasiswa\n" +
+                                  "4. All History\n" +
                                   "0. Keluar");
                 Console.WriteLine("=========================");
                 Console.Write("# ");
@@ -114,7 +115,34 @@ namespace SistemPencatatanParkir
                 }
                 else if (key1 == 3)
                 {
+                    Console.WriteLine("========================================");
+                    Console.WriteLine("- Masukkan NIM Mahasiswa untuk Dihapus -");
+                    Console.WriteLine("========================================");
+
+                    string snim = Console.ReadLine();
+                    int num = 0;
+
+                    foreach (Mahasiswa mahasiswa in allMahasiswa)
+                    {
+                        num++;
+                        if (mahasiswa.Nim==snim)
+                        {
+                            Console.WriteLine("Mahasiswa dengan NIM " + snim +" - " + mahasiswa.Nama + " Dihapus");
+                            allMahasiswa.Remove(mahasiswa);
+                            break;
+                        }
+                    }
+                    if(num==0)
+                    {
+                        Console.WriteLine("Mahasiswa Tidak Ditemukan.\nHarap Periksa NIM yang anda masukkan dan coba lagi");
+                    }
+                    Console.ReadLine();
+                        
+                }
+                else if (key1 == 4)
+                {
                     Console.Clear();
+                    int num = 0;
                     foreach (Mahasiswa mahasiswa in allMahasiswa)
                     {
                         if (mahasiswa.Kendaraan != null)
@@ -123,27 +151,25 @@ namespace SistemPencatatanParkir
                             {
                                 foreach (History history in mahasiswa.Kendaraan.Histories)
                                 {
+                                    num++;
                                     Console.WriteLine("==============");
-                                    Console.WriteLine(mahasiswa.Nama +" - "+ mahasiswa.Nim);
+                                    Console.WriteLine(mahasiswa.Nama + " - " + mahasiswa.Nim);
                                     Console.WriteLine(history.Tipe);
                                     Console.WriteLine(history.Waktu);
                                     Console.WriteLine("==============");
                                     Console.WriteLine();
+                                    break;
                                 }
-                            } else
-                            {
-                                Console.WriteLine("=========================================");
-                                Console.WriteLine("Maaf, Tidak ada History untuk ditampilkan.");
-                                Console.WriteLine("=========================================");
                             }
                         }
-                        else
-                        {
-                            Console.WriteLine("=========================================");
-                            Console.WriteLine("Maaf, Tidak ada History untuk ditampilkan");
-                            Console.WriteLine("=========================================");
-                        }
                     }
+                    if (num == 0)
+                    {
+                        Console.WriteLine("=========================================");
+                        Console.WriteLine("Maaf, Tidak ada History untuk ditampilkan");
+                        Console.WriteLine("=========================================");
+                    }
+
                     Console.ReadLine();
                 }
                 else if (key1 == 0)
