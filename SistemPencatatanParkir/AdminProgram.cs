@@ -114,7 +114,37 @@ namespace SistemPencatatanParkir
                 }
                 else if (key1 == 3)
                 {
-
+                    Console.Clear();
+                    foreach (Mahasiswa mahasiswa in allMahasiswa)
+                    {
+                        if (mahasiswa.Kendaraan != null)
+                        {
+                            if (mahasiswa.Kendaraan.Histories != null)
+                            {
+                                foreach (History history in mahasiswa.Kendaraan.Histories)
+                                {
+                                    Console.WriteLine("==============");
+                                    Console.WriteLine(mahasiswa.Nama +" - "+ mahasiswa.Nim);
+                                    Console.WriteLine(history.Tipe);
+                                    Console.WriteLine(history.Waktu);
+                                    Console.WriteLine("==============");
+                                    Console.WriteLine();
+                                }
+                            } else
+                            {
+                                Console.WriteLine("=========================================");
+                                Console.WriteLine("Maaf, Tidak ada History untuk ditampilkan.");
+                                Console.WriteLine("=========================================");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("=========================================");
+                            Console.WriteLine("Maaf, Tidak ada History untuk ditampilkan");
+                            Console.WriteLine("=========================================");
+                        }
+                    }
+                    Console.ReadLine();
                 }
                 else if (key1 == 0)
                 {
@@ -124,7 +154,6 @@ namespace SistemPencatatanParkir
                 {
                     Console.WriteLine("~ Tidak ada pilihan lain ~");
                 }
-
             } while (again1);
 
             Console.WriteLine("Logging out from Admin...");
