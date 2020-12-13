@@ -23,6 +23,11 @@ namespace SistemPencatatanParkir
             AllMahasiswa = mahasiswas;
             Allkendaraan = kendaraans;
 
+            Console.Clear();
+            Console.WriteLine("===================");
+            Console.WriteLine("- Login Mahasiswa -");
+            Console.WriteLine("===================");
+
             Console.Write("Username = ");
             string username = Console.ReadLine();
             Console.Write("Password = ");
@@ -46,7 +51,7 @@ namespace SistemPencatatanParkir
         {
             if (!isLoggedIn)
             {
-                Console.WriteLine("Maaf, Username atau Password anda salah.\nEnter to Exit.");
+                Console.WriteLine("~ Maaf, Username atau Password anda salah ~\nEnter to Exit.");
                 Console.ReadLine();
                 return;
             }
@@ -55,8 +60,18 @@ namespace SistemPencatatanParkir
             do
             {
                 Console.Clear();
-                Console.WriteLine("Sistem Pencatan Parkir.\nAplikasi ini mencatat data Mahasiswa, Kendaraan dan Histori keluar masuknya.");
-                Console.WriteLine("1. My Data\n2. Ubah Data\n3. Kendaraan\n4. Parkir\n0. Keluar");
+                Console.WriteLine("==========================");
+                Console.WriteLine("Sistem Pencatan Parkir\n" +
+                                  "Aplikasi ini mencatat data Mahasiswa, Kendaraan dan Histori keluar masuknya.");
+                Console.WriteLine("==========================");
+                Console.WriteLine("- Pilih Menu -");
+                Console.WriteLine("1. My Data\n" +
+                                  "2. Ubah Data\n" +
+                                  "3. Kendaraan\n" +
+                                  "4. Parkir\n" +
+                                  "0. Keluar");
+                Console.WriteLine("==========================");
+                Console.Write("# ");
 
                 if (!int.TryParse(Console.ReadLine(), out int key2))
                 {
@@ -66,21 +81,29 @@ namespace SistemPencatatanParkir
 
                 if (key2 == 1)
                 {
-                    Console.WriteLine("Nama         = " + myData.Nama);
-                    Console.WriteLine("NIM          = " + myData.Nim);
-                    Console.WriteLine("Username     = " + myData.Username);
+                    Console.Clear();
+                    Console.WriteLine("==========================");
+                    Console.WriteLine("- Nama         = " + myData.Nama);
+                    Console.WriteLine("- NIM          = " + myData.Nim);
+                    Console.WriteLine("- Username     = " + myData.Username);
+                    Console.WriteLine("==========================");
                     Console.ReadLine();
                 }
                 else if (key2 == 2)
                 {
                     // Ubah Data
-                    Console.WriteLine("Nama         = ");
+                    Console.Clear();
+                    Console.WriteLine("==================");
+                    Console.WriteLine("- Ubah Data Saya -");
+                    Console.WriteLine("==================");
+
+                    Console.Write("Nama         = ");
                     myData.Nama = Console.ReadLine();
-                    Console.WriteLine("NIM          = ");
+                    Console.Write("NIM          = ");
                     myData.Nim = Console.ReadLine();
-                    Console.WriteLine("Username     = ");
+                    Console.Write("Username     = ");
                     myData.Username = Console.ReadLine();
-                    Console.WriteLine("Data Tersimpan");
+                    Console.Write("~ Data Tersimpan ~");
                     Console.ReadLine();
                 }
                 else if (key2 == 3)
@@ -103,14 +126,14 @@ namespace SistemPencatatanParkir
                 }
                 else
                 {
-                    Console.WriteLine("Tidak ada pilihan lain.");
+                    Console.WriteLine("~ Tidak ada pilihan lain ~");
                 }
 
             } while (again2);
 
             AllMahasiswa.Add(myData);
-            Console.WriteLine("Closing from Mahasiswa...");
-            Thread.Sleep(1500);
+            Console.WriteLine("Logging you out from Mahasiswa...");
+            Thread.Sleep(1000);
         }
     }
 

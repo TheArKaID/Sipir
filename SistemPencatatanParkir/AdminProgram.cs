@@ -22,9 +22,13 @@ namespace SistemPencatatanParkir
             do
             {
                 Console.Clear();
-                Console.Write("Masukkan Username: ");
+                Console.WriteLine("===============");
+                Console.WriteLine("- Login Admin -");
+                Console.WriteLine("===============");
+
+                Console.Write("Masukkan Username : ");
                 string username = Console.ReadLine();
-                Console.Write("Masukkan Password :");
+                Console.Write("Masukkan Password : ");
                 string password = Console.ReadLine();
 
                 Admin admin = new Admin(username, password);
@@ -35,7 +39,7 @@ namespace SistemPencatatanParkir
                 }
                 else
                 {
-                    Console.WriteLine("Username atau Password Salah!");
+                    Console.WriteLine("~ Username atau Password Salah! ~");
                     Console.WriteLine("Try Again");
                     Console.ReadLine();
                 }
@@ -52,8 +56,17 @@ namespace SistemPencatatanParkir
             do
             {
                 Console.Clear();
-                Console.WriteLine("Sistem Pencatan Parkir.\nAplikasi ini mencatat data Mahasiswa, Kendaraan dan Histori keluar masuknya.");
-                Console.WriteLine("1. Tambah Mahasiswa\n2. Lihat Semua Mahasiswa\n3. All History\n0. Keluar");
+                Console.WriteLine("=========================");
+                Console.WriteLine("Sistem Pencatan Parkir.\n" +
+                                  "Aplikasi ini mencatat data Mahasiswa, Kendaraan dan Histori keluar masuknya.");
+                Console.WriteLine("=========================");
+                Console.WriteLine("- Pilih Menu -");
+                Console.WriteLine("1. Tambah Mahasiswa\n" +
+                                  "2. Lihat Semua Mahasiswa\n" +
+                                  "3. All History\n" +
+                                  "0. Keluar");
+                Console.WriteLine("=========================");
+                Console.Write("# ");
 
                 if (!int.TryParse(Console.ReadLine(), out int key1))
                 {
@@ -64,20 +77,23 @@ namespace SistemPencatatanParkir
                 if (key1 == 1)
                 {
                     Console.Clear();
+                    Console.WriteLine("=================================");
+                    Console.WriteLine("- Tambahkan Data Mahasiswa Baru -");
+                    Console.WriteLine("=================================");
                     Mahasiswa mahasiswa = new Mahasiswa();
                     mahasiswa.Id = new Random().Next(1000, 9999);
-                    Console.WriteLine("Masukkan Nama        = ");
+                    Console.Write("Masukkan Nama        = ");
                     mahasiswa.Nama = Console.ReadLine();
-                    Console.WriteLine("Masukkan NIM         = ");
+                    Console.Write("Masukkan NIM         = ");
                     mahasiswa.Nim = Console.ReadLine();
-                    Console.WriteLine("Masukkan Username    = ");
+                    Console.Write("Masukkan Username    = ");
                     mahasiswa.Username = Console.ReadLine();
-                    Console.WriteLine("Masukkan Password    = ");
+                    Console.Write("Masukkan Password    = ");
                     mahasiswa.Password = Console.ReadLine();
                     mahasiswa.Role = "mahasiswa";
 
                     allMahasiswa.Add(mahasiswa);
-                    Console.WriteLine("Mahasiswa Ditambahkan.\nEnter untuk kembali.");
+                    Console.WriteLine("~ Mahasiswa Ditambahkan ~\nEnter untuk kembali");
                     Console.ReadLine();
                 }
                 else if (key1 == 2)
@@ -87,10 +103,11 @@ namespace SistemPencatatanParkir
                     foreach (Mahasiswa mahasiswa in allMahasiswa)
                     {
                         Console.WriteLine(num++);
-                        Console.WriteLine("=========");
-                        Console.WriteLine(". ID : " + mahasiswa.Id);
-                        Console.WriteLine(". Nama : " + mahasiswa.Nama);
-                        Console.WriteLine(". NIM : " + mahasiswa.Nim);
+                        Console.WriteLine("==============");
+                        Console.WriteLine("- ID     : " + mahasiswa.Id);
+                        Console.WriteLine("- Nama   : " + mahasiswa.Nama);
+                        Console.WriteLine("- NIM    : " + mahasiswa.Nim);
+                        Console.WriteLine("==============");
                     }
                     Console.WriteLine("Exit....");
                     Console.ReadLine();
@@ -105,12 +122,13 @@ namespace SistemPencatatanParkir
                 }
                 else
                 {
-                    Console.WriteLine("Tidak ada pilihan lain.");
+                    Console.WriteLine("~ Tidak ada pilihan lain ~");
                 }
 
             } while (again1);
-            Console.WriteLine("Closing from Admin...");
-            Thread.Sleep(1500);
+
+            Console.WriteLine("Logging out from Admin...");
+            Thread.Sleep(1000);
         }
     }
 }

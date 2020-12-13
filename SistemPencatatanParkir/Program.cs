@@ -20,8 +20,16 @@ namespace SistemPencatatanParkir
             do
             {
                 Console.Clear();
-                Console.WriteLine("Sistem Pencatan Parkir.\nAplikasi ini mencatat data Mahasiswa, Kendaraan dan Histori keluar masuknya.");
-                Console.WriteLine("1. Admin\n2. Mahasiswa\n0. Keluar");
+                Console.WriteLine("==========================");
+                Console.WriteLine("Sistem Pencatan Parkir\n" +
+                                  "Aplikasi ini mencatat data Mahasiswa, Kendaraan dan Histori keluar masuknya.");
+                Console.WriteLine("========================");
+                Console.WriteLine("- Pilih Menu -");
+                Console.WriteLine("1. Admin\n" +
+                                  "2. Mahasiswa\n" +
+                                  "0. Keluar");
+                Console.WriteLine("========================");
+                Console.Write("# ");
 
                 if (!int.TryParse(Console.ReadLine(), out int key))
                 {
@@ -50,12 +58,13 @@ namespace SistemPencatatanParkir
                 }
                 else
                 {
-                    Console.WriteLine("Tidak ada pilihan lain.");
+                    Console.WriteLine("~ Tidak ada pilihan lain ~");
+                    Console.ReadLine();
                 }
 
             } while (again);
             Console.WriteLine("Closing app...");
-            Thread.Sleep(1500);
+            Thread.Sleep(1000);
         }
     }
 }

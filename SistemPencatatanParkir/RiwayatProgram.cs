@@ -20,7 +20,9 @@ namespace SistemPencatatanParkir
         {
             if (Kendaraan == null)
             {
-                Console.WriteLine("Maaf, anda tidak memiliki Kendaraan. Tidak bisa Parkir");
+                Console.WriteLine("==========================================================");
+                Console.WriteLine("- Maaf, anda tidak memiliki Kendaraan. Tidak bisa Parkir -");
+                Console.WriteLine("==========================================================");
                 Console.ReadLine();
             }
             else
@@ -31,8 +33,15 @@ namespace SistemPencatatanParkir
                 do
                 {
                     Console.Clear();
-                    Console.WriteLine("Selamat Data di Parkiran.");
-                    Console.WriteLine("1. Masuk Parkiran\n2. Keluar Parkiran\n0. Kembali");
+                    Console.WriteLine("============================");
+                    Console.WriteLine("- Selamat Data di Parkiran -");
+                    Console.WriteLine("============================");
+                    Console.WriteLine("Pilih Menu -");
+                    Console.WriteLine("1. Masuk Parkiran\n" +
+                                      "2. Keluar Parkiran\n" +
+                                      "0. Kembali");
+                    Console.WriteLine("============================");
+                    Console.Write("# ");
 
                     if (!int.TryParse(Console.ReadLine(), out int key4))
                     {
@@ -41,17 +50,24 @@ namespace SistemPencatatanParkir
 
                     if (key4 == 1)
                     {
-                        isParkir = true;
-                        now = DateTime.Now.TimeOfDay;
-                        History history = new History
+                        if (isParkir)
                         {
-                            Id = new Random().Next(1000, 9999),
-                            Tipe = "Masuk",
-                            Waktu = now
-                        };
-                        Kendaraan.Histories.Add(history);
-                        Console.WriteLine("Motor Diparkirkan!");
-                        Console.ReadLine();
+                            Console.WriteLine("~ Anda sudah parkir ~");
+                            Console.ReadLine();
+                        } else
+                        {
+                            isParkir = true;
+                            now = DateTime.Now.TimeOfDay;
+                            History history = new History
+                            {
+                                Id = new Random().Next(1000, 9999),
+                                Tipe = "Masuk",
+                                Waktu = now
+                            };
+                            Kendaraan.Histories.Add(history);
+                            Console.WriteLine("~ Motor Diparkirkan! ~");
+                            Console.ReadLine();
+                        }
                     }
                     else if (key4 == 2)
                     {
@@ -66,12 +82,12 @@ namespace SistemPencatatanParkir
                                 Waktu = keluar
                             };
                             Kendaraan.Histories.Add(history);
-                            Console.WriteLine("Anda parkir selama " + (keluar - now));
+                            Console.WriteLine("~ Anda parkir selama " + (keluar - now) + " ~");
                             Console.ReadLine();
                         }
                         else
                         {
-                            Console.WriteLine("Anda tidak sedang Parkir");
+                            Console.WriteLine("~ Anda tidak sedang Parkir ~");
                             Console.ReadLine();
                         }
                     }
@@ -79,7 +95,7 @@ namespace SistemPencatatanParkir
                     {
                         if (isParkir)
                         {
-                            Console.WriteLine("Maaf, Anda sedang Parkir, Silahkan keluar parkiran terlebih dahulu");
+                            Console.WriteLine("~ Maaf, Anda sedang Parkir, Silahkan keluar parkiran terlebih dahulu ~");
                             Console.ReadLine();
                         }
                         else
